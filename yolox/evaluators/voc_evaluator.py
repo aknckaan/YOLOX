@@ -13,7 +13,13 @@ import numpy as np
 
 import torch
 
-from yolox.utils import gather, is_main_process, postprocess, synchronize, time_synchronized
+from yolox.utils import (
+    gather,
+    is_main_process,
+    postprocess,
+    synchronize,
+    time_synchronized,
+)
 
 
 class VOCEvaluator:
@@ -21,14 +27,7 @@ class VOCEvaluator:
     VOC AP Evaluation class.
     """
 
-    def __init__(
-        self,
-        dataloader,
-        img_size,
-        confthre,
-        nmsthre,
-        num_classes,
-    ):
+    def __init__(self, dataloader, img_size, confthre, nmsthre, num_classes):
         """
         Args:
             dataloader (Dataloader): evaluate dataloader.

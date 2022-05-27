@@ -14,15 +14,14 @@ from yolox.exp import get_exp
 def make_parser():
     parser = argparse.ArgumentParser("YOLOX torchscript deploy")
     parser.add_argument(
-        "--output-name", type=str, default="yolox.torchscript.pt", help="output name of models"
+        "--output-name",
+        type=str,
+        default="yolox.torchscript.pt",
+        help="output name of models",
     )
     parser.add_argument("--batch-size", type=int, default=1, help="batch size")
     parser.add_argument(
-        "-f",
-        "--exp_file",
-        default=None,
-        type=str,
-        help="expriment description file",
+        "-f", "--exp_file", default=None, type=str, help="expriment description file"
     )
     parser.add_argument("-expn", "--experiment-name", type=str, default=None)
     parser.add_argument("-n", "--name", type=str, default=None, help="model name")

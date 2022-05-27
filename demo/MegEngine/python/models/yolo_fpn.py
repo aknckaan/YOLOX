@@ -14,9 +14,7 @@ class YOLOFPN(M.Module):
     YOLOFPN module. Darknet 53 is the default backbone of this model.
     """
 
-    def __init__(
-        self, depth=53, in_features=["dark3", "dark4", "dark5"],
-    ):
+    def __init__(self, depth=53, in_features=["dark3", "dark4", "dark5"]):
         super().__init__()
 
         self.backbone = Darknet(depth)
@@ -41,9 +39,7 @@ class YOLOFPN(M.Module):
             *[
                 self._make_cbl(in_filters, filters_list[0], 1),
                 self._make_cbl(filters_list[0], filters_list[1], 3),
-
                 self._make_cbl(filters_list[1], filters_list[0], 1),
-
                 self._make_cbl(filters_list[0], filters_list[1], 3),
                 self._make_cbl(filters_list[1], filters_list[0], 1),
             ]

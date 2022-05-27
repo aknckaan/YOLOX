@@ -14,11 +14,7 @@ class YOLOFPN(nn.Module):
     YOLOFPN module. Darknet 53 is the default backbone of this model.
     """
 
-    def __init__(
-        self,
-        depth=53,
-        in_features=["dark3", "dark4", "dark5"],
-    ):
+    def __init__(self, depth=53, in_features=["dark3", "dark4", "dark5"]):
         super().__init__()
 
         self.backbone = Darknet(depth)

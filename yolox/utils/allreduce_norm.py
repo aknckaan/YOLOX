@@ -50,10 +50,7 @@ def tensor2pyobj(tensor):
 
 
 def _get_reduce_op(op_name):
-    return {
-        "sum": dist.ReduceOp.SUM,
-        "mean": dist.ReduceOp.SUM,
-    }[op_name.lower()]
+    return {"sum": dist.ReduceOp.SUM, "mean": dist.ReduceOp.SUM}[op_name.lower()]
 
 
 def all_reduce(py_dict, op="sum", group=None):

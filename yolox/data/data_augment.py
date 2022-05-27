@@ -28,7 +28,9 @@ def augment_hsv(img, hgain=5, sgain=30, vgain=30):
     img_hsv[..., 1] = np.clip(img_hsv[..., 1] + hsv_augs[1], 0, 255)
     img_hsv[..., 2] = np.clip(img_hsv[..., 2] + hsv_augs[2], 0, 255)
 
-    cv2.cvtColor(img_hsv.astype(img.dtype), cv2.COLOR_HSV2BGR, dst=img)  # no return needed
+    cv2.cvtColor(
+        img_hsv.astype(img.dtype), cv2.COLOR_HSV2BGR, dst=img
+    )  # no return needed
 
 
 def get_aug_params(value, center=0):
@@ -39,17 +41,13 @@ def get_aug_params(value, center=0):
     else:
         raise ValueError(
             "Affine params should be either a sequence containing two values\
-             or single float values. Got {}".format(value)
+             or single float values. Got {}".format(
+                value
+            )
         )
 
 
-def get_affine_matrix(
-    target_size,
-    degrees=10,
-    translate=0.1,
-    scales=0.1,
-    shear=10,
-):
+def get_affine_matrix(target_size, degrees=10, translate=0.1, scales=0.1, shear=10):
     twidth, theight = target_size
 
     # Rotation and Scale
