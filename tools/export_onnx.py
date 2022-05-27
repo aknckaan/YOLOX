@@ -36,7 +36,11 @@ def make_parser():
     )
     parser.add_argument("--no-onnxsim", action="store_true", help="use onnxsim or not")
     parser.add_argument(
-        "-f", "--exp_file", default=None, type=str, help="expriment description file"
+        "-f",
+        "--exp_file",
+        default=None,
+        type=str,
+        help="experiment description file",
     )
     parser.add_argument("-expn", "--experiment-name", type=str, default=None)
     parser.add_argument("-n", "--name", type=str, default=None, help="model name")
